@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SVG.js</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.2.4/svg.min.js" integrity="sha512-ovlWyhrYXr3HEkGJI5YPXIFYIbHEKs2yfemKVVIIQe9U74tXyTuVdzMlvZlw/0X5lnIDRgtVlckrkeuCrDpq4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+    <body onload="onload();">
+        <div id="drawing"></div>
+
+        <script>
+            function onload() {
+                var draw = SVG().addTo('#drawing').size(300, 300);
+                var rect = draw.rect(100, 100).attr({fill: '#f00'});
+                rect.animate(1000, 1000).attr({ fill: '#000' }).animate(2000, 1000).move(50, 50).fill('#f06').after(function(){
+                    this.reverse();
+                });
+            }
+        </script>
+
+    </body>
+</html>

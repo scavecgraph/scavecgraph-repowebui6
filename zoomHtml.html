@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            let scale = 1;            
+            function zoom(event) {
+                event.preventDefault();
+                scale += event.deltaY * -0.001;
+                //scale = Math.min(Math.max(0.125, scale), 4);
+                console.log(scale);
+                console.log("scale(" + scale + ")");
+                // Apply scale transform
+                el = document.getElementById("zoomContent");
+                el.style.transform = "scale(" + scale + ")";
+            }
+            
+            function onLoad(){
+                const el = document.querySelector("table");
+                console.log(el);
+                el.onwheel = zoom;
+            }
+        </script>
+    </head>
+    <body onload="onLoad();">
+        <table style="width:600px;height:600px;background-color: blue;">
+            <tr>
+                <td style="width:50px;">&nbsp;</td>
+                <td>
+                    
+                </td>
+                <td style="width:50px;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td style="background-color: white;">
+                    <div id="zoomContent">Scale me with your mouse wheel.</div>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    &nbsp;
+                </td>
+                <td>&nbsp;</td>
+            </tr>            
+        </table>
+    </body>
+</html>
+
